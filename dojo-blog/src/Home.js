@@ -1,15 +1,21 @@
+import { useState } from 'react'
 const Home = () => {
-    const clickHandler = (name) => {
-        console.log(`hello ${name}`)
+    
+    const [name, setName] = useState('upal')
+    const [age, setAge] = useState(24)
+    const clickHandler = () => {
+        setName('elon')
+        setAge(50)
     }
     return ( 
         <div className="home">
             <h2>HomePage</h2>
-            <button>Click me</button>
+            <p>{`${name} is ${age} years old`}</p>
             <button onClick = {
-                () => clickHandler('upal') //! inmoke as a annonymous function
-                
-            }>Invoke my name</button> 
+                () => clickHandler() 
+            }>Change the Name</button> 
+            
+
         </div>
      );
 }
