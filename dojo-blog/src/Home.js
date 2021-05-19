@@ -8,6 +8,7 @@ const Home = () => {
         {title:'My name is Bill', body: 'lorem..', author:'bill', id: 3},
         {title:'My name is Musk', body: 'lorem..', author:'elon', id: 4}
     ]);
+    const [name, setName] = useState("xxx")
 
     const handleDelete = (id) =>{
         const newBlog =blogs.filter(blog => blog.id !== id)
@@ -15,14 +16,17 @@ const Home = () => {
     }
     useEffect(()=> {
         console.log("useEffect ran")
-        console.log(blogs)
-    }) 
+        console.log(name)
+    },[name])  
     return ( 
         <div className="home">
             {/* \<h2>All Blogs</h2> */}
             <BlogList blogItems = {blogs} titles= "All Blogs" handleDelete = {handleDelete}/> 
             {/* <BlogList blogItems = {blogs.filter((blog) => blog.author === 'elon')} titles= "Elon's Blog"/>  */}
-
+            <button onClick = {()=>{
+                setName('elon')
+            }}>Change Name</button>
+            <p>{name}</p>
         </div>
      );
 }
