@@ -3,38 +3,18 @@
 # react-ninja
 
 ```react
-$ npx create-react-app dojo-blog
+// How to run this app?
+$ git clone
+$ cd ./dojo-blog
 $ npm run start //open localhost:3000 server
-$ npx json-server --watch ./dojo-blog/data/db.json --port 8000
-$ npm install react-router-dom@5 #@5 = version 5 in ./dojo-blog
-```
-
-```reac
-import './App.css';
-
-function App() {
-  const syfy = 'The Expanse'
-  const person = {name: "upal", age: 30}
-  const ggl = "https://www.google.com"
-  return (
-    <div className="App">
-      <div className="content">
-        <h1>{"Blog"}</h1>
-        <p>{`hi internet, my name is ${person.name}`}</p>
-        <p>{`I'm currently watching ${syfy}`}</p>
-        <p>{ [1,2,3,4,5] }</p>
-        <p>{`random numbers: ${Math.round(Math.random()*6)}`}</p>
-        <a href={ggl}>Google</a>
-      </div>
-    </div>
-  );
-}
-
-export default App;
+$ npx json-server --watch ./dojo-blog/data/db.json --port 8000 // different terminal for json-server 
+//open localhost:3000 server to see the app
 ```
 
 ```react
+$ npx create-react-app dojo-blog
+$ npm run start //open localhost:3000 server
+$ npx json-server --watch ./dojo-blog/data/db.json --port 8000
+$ npm install react-router-dom@5 // @5 = version 5 in ./dojo-blog
 ```
-
-
 
