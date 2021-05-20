@@ -14,10 +14,12 @@ const Home = () => {
         const newBlog =blogs.filter(blog => blog.id !== id)
         setBlogs(newBlog)
     }
+
     useEffect(()=> {
         console.log("useEffect ran")
         console.log(name)
     },[name])  
+
     return ( 
         <div className="home">
             {/* \<h2>All Blogs</h2> */}
