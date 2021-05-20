@@ -11,23 +11,33 @@ const Home = () => {
     // const [name, setName] = useState("xxx")
     const [blogs, setBlogs] = useState(null)
     const [isPending, setIsPending] = useState(true)
+    const [error, setError] = useState(null)
 
 
     useEffect(()=> {
         setTimeout(() =>{
-            fetch('http://localhost:8000/blogs')
-          .then(res => {
-              return res.json()
-          })
-          .then(data => {
-              setBlogs(data)
-              setIsPending(false)
-          })
+            fetch('http://localhost:8000/blogs ')
+                .then(res => {
+                    if(!res.ok){
+                        throw Error('couldn\'t fetch the data')
+                    }
+                    return res.json()
+                })
+                .then(data => {
+                    setBlogs(data)
+                    setIsPending(false)
+                    setError(false)
+                })
+                .catch(err =>{
+                    setError(err.message)
+                    setIsPending(false)
+                })
         }, 1500)
     },[])  
 
     return ( 
         <div className="home">
+            {error && <div>{error}</div>}
             {isPending && <div>loading...</div>}
             {blogs && <BlogList blogItems = {blogs} titles= "All Blogs" />} 
             
