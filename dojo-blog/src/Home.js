@@ -10,21 +10,25 @@ const Home = () => {
     // ]);
     // const [name, setName] = useState("xxx")
     const [blogs, setBlogs] = useState(null)
+    const [isPending, setIsPending] = useState(true)
 
 
     useEffect(()=> {
-        fetch('http://localhost:8000/blogs')
+        setTimeout(() =>{
+            fetch('http://localhost:8000/blogs')
           .then(res => {
               return res.json()
           })
           .then(data => {
               setBlogs(data)
+              setIsPending(false)
           })
+        }, 1500)
     },[])  
 
     return ( 
         <div className="home">
-            {/* \<h2>All Blogs</h2> */}
+            {isPending && <div>loading...</div>}
             {blogs && <BlogList blogItems = {blogs} titles= "All Blogs" />} 
             
             
