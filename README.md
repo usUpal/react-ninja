@@ -6,7 +6,7 @@
 $ npx create-react-app dojo-blog
 $ npm run start //open localhost:3000 server
 $ npx json-server --watch ./dojo-blog/data/db.json --port 8000
-
+$ npm install react-router-dom@5 #@5 = version 5 in ./dojo-blog
 ```
 
 ```reac
